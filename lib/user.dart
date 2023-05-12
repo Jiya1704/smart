@@ -11,122 +11,244 @@ class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.amber.shade200,
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-            fontFamily: 'Gloock-Regular',
-            color:Colors.black87,
-          ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.black87,
-          onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(context, '/screen', (route) => false);
-          },
-        ),
-      ),
-      body:
+
+      body:Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+
           Container(
-            color: Colors.grey.shade200,
-            child: Column(
-              children: <Widget>[
+            height:250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0), // Set the desired radius here
+              color: Colors.lightGreen.shade200,
+            ),
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  color: Colors.black87,
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(context, '/screen', (route) => false);
+                    // Navigator.pushReplacementNamed(context, '/screen');
+                  },
+                ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children :<Widget>[
-                    Image.asset('assets/user-removebg-preview.png'),
+                  children: [
+                    Image.asset(
+                      'assets/hello.png',
+                      height:150,
+                      width:200,
+                    ),
+
+                    Image.asset(
+                      'assets/user-removebg-preview.png',
+                      height:150,
+
+                    ),
                   ],
                 ),
-                    Container(
-                      color: Colors.white60,
-                      height:60,
-                      width:350,
-                      child:Row(
-                        children: <Widget>[
-                          Text(
-                            'Name : ',
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          Text(
-                            MyPhone.name,
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height:10,
-                    ),
-                    Container(
-                      color: Colors.white60,
-                      height:60,
-                      width:350,
-                      child:Row(
-                        children: <Widget>[
-                          Text(
-                            'Location : ',
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          Text(
-                            MyPhone.location,
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height:10,
-                    ),
-                    Container(
-                      color: Colors.white60,
-                      height:60,
-                      width:350,
-                      child:Row(
-                        children: <Widget>[
-                          Text(
-                            'Number: ',
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          Text(
-                            MyPhone.number,
-                            style:TextStyle(
-                              fontFamily:'Gloock-Regular',
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
 
               ],
             ),
           ),
+          SizedBox(height:20),
+          Text(
+            '   Name',
+            style:TextStyle(
+              fontFamily:'Gloock-Regular',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+                  ),
+                ),
+          SizedBox(height:10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              SizedBox(width:20),
+              Container(
+                height:40,
+                width:320,
+                color: Colors.grey.shade200,
+                child:Text(  MyPhone.name,
+                  style:TextStyle(
+                  fontFamily:'Gloock-Regular',
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                   color: Colors.black87 ,
+                                      ),
+
+                ),
+              ),
+            ],
+          ),
+
+
+          SizedBox(height:20),
+          Text(
+            '   Location',
+            style:TextStyle(
+              fontFamily:'Gloock-Regular',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height:10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              SizedBox(width:20),
+              Container(
+                height:40,
+                width:320,
+                color: Colors.grey.shade200,
+                child:Text(  MyPhone.location,
+                  style:TextStyle(
+                    fontFamily:'Gloock-Regular',
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87 ,
+                  ),
+
+                ),
+              ),
+            ],
+          ),
+
+
+
+          SizedBox(height:20),
+          Text(
+            '   Phone Number',
+            style:TextStyle(
+              fontFamily:'Gloock-Regular',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87
+            ),
+          ),
+          SizedBox(height:10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+
+              SizedBox(width:20),
+              Container(
+                height:40,
+                width:320,
+                color: Colors.grey.shade200,
+                child:Text(  MyPhone.number,
+                  style:TextStyle(
+                    fontFamily:'Gloock-Regular',
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87 ,
+                  ),
+
+                ),
+              ),
+            ],
+          ),
+
+      ],
+      ),
+
+
+
+      //
+      //           Container(
+      //             color: Colors.white60,
+      //             height:60,
+      //             width:350,
+      //             child:Row(
+      //               children: <Widget>[
+      //                 Text(
+      //                   'Name : ',
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w300,
+      //                   ),
+      //                 ),
+      //                 Text(
+      //                   MyPhone.name,
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w500,
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //           SizedBox(
+      //             height:10,
+      //           ),
+      //           Container(
+      //             color: Colors.white60,
+      //             height:60,
+      //             width:350,
+      //             child:Row(
+      //               children: <Widget>[
+      //                 Text(
+      //                   'Location : ',
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w300,
+      //                   ),
+      //                 ),
+      //                 Text(
+      //                   MyPhone.location,
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w500,
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //           SizedBox(
+      //             height:10,
+      //           ),
+      //           Container(
+      //             color: Colors.white60,
+      //             height:60,
+      //             width:350,
+      //             child:Row(
+      //               children: <Widget>[
+      //                 Text(
+      //                   'Number: ',
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w300,
+      //                   ),
+      //                 ),
+      //                 Text(
+      //                   MyPhone.number,
+      //                   style:TextStyle(
+      //                     fontFamily:'Gloock-Regular',
+      //                     fontSize: 25,
+      //                     fontWeight: FontWeight.w500,
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //
+      //         ],
+      //       ),
+      //     ),
+      //   ],
+      // ),
+
+
     );
   }
 }

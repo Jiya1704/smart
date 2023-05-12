@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:smart/phone.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class MyVerify extends StatefulWidget {
 
 class _MyVerifyState extends State<MyVerify> {
   final FirebaseAuth auth = FirebaseAuth.instance;
+  final cartdb = FirebaseDatabase.instance.ref();
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -109,6 +111,11 @@ class _MyVerifyState extends State<MyVerify> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () async{
+                      cartdb.child("Users").child(MyPhone.name).child("data").set({
+                        "name": MyPhone.name,
+                        "phone":MyPhone.number,
+                        "address": MyPhone.location,
+                      });
                       // Create a PhoneAuthCredential with the code
                       PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: MyPhone.verify, smsCode: otpcode);
 

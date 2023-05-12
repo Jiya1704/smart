@@ -75,6 +75,7 @@ class _MyPhoneState extends State<MyPhone> {
                           },
                           keyboardType: TextInputType.name,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
                             border: InputBorder.none,
                             hintText: "    Name ",
                           ),
@@ -103,6 +104,7 @@ class _MyPhoneState extends State<MyPhone> {
                           },
                           keyboardType: TextInputType.name,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
                             border: InputBorder.none,
                             hintText: "    Location  ",
                           ),
